@@ -28,6 +28,7 @@ function()
 				initialValue: content,
 				usageStatistics: false,
 			});
+
 			$("button[name = 'btn_save']").click(
 				function()
 				{

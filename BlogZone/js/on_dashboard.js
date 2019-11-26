@@ -39,7 +39,7 @@ function()
 				let section = $("<section></section>").appendTo(div_post_card).addClass("p-strip--light is-shallow");
 				let div_row = $("<div></div>").appendTo(section).addClass("row");
 				let post_title = $("<h2></h2>").appendTo(div_row).addClass("u-align-text--center");
-				let post_link = $("<a></a>").appendTo(post_title).attr("href", url).text(parsed_data.title);
+				let post_link = $("<a></a>").appendTo(post_title).attr("href", url_null).attr("name", name).val(parsed_data.title).text(parsed_data.title);
 				let post_caption = $("<p></p>").appendTo(div_row).addClass("u-align-text--center").text(parsed_data.caption);
 				let hr = $("<hr>").appendTo(div_row);
 				let post_content = $("<p></p>").appendTo(div_row).addClass("post-fade post-content").text(parsed_data.content.substring(0, 100));

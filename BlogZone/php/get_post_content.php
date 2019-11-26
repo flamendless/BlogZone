@@ -20,6 +20,7 @@ $base_path = $data["base_path"];
 
 $path = $base_path . $filename;
 
-echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/BlogZone" . $path);
+$post_content = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/BlogZone" . $path);
+echo $post_content;
 
 ?>

@@ -14,7 +14,7 @@ $result = Query::Query_Set("SELECT filename, base_path FROM $tbl_post WHERE auth
 $data = mysqli_fetch_assoc($result);
 $base_path = $data["base_path"];
 $filename = $data["filename"];
-$file = $_SERVER["DOCUMENT_ROOT"] . $/BlogZonebase_path . $filename;
+$file = $_SERVER["DOCUMENT_ROOT"] . "/BlogZone" . $base_path . $filename;
 
 $result = unlink($file);
 
