@@ -1,0 +1,69 @@
+html
+{
+	height: 100%;
+}
+
+body
+{
+	position: relative;
+	margin: 0;
+	padding-bottom: 6rem;
+	min-height: 100%;
+	margin: 0 auto;
+}
+
+.main-card
+{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+.date-card
+{
+	width: 20%;
+	margin-right: 16px;
+}
+
+.post-main
+{
+	margin-left: 16px;
+	margin-right: 16px;
+	margin-top: 16px;
+}
+
+.post-card
+{
+	width: 100%;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
+.post-fade:before
+{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: linear-gradient(transparent 200px, white);
+	pointer-events: none;
+}
+
+.post-content
+{
+	overflow: hidden;
+	max-height: 128px;
+}
+
+@media only screen and (max-width: 600px) { .main-card { width: 90%; } }
+@media only screen and (min-width: 600px) { .main-card { width: 80%; } }
+@media only screen and (min-width: 768px) { .main-card { width: 75%; } }
+@media only screen and (min-width: 992px) { .main-card { width: 60%; } }
+@media only screen and (min-width: 1200px) { .main-card { width: 50%; } }
+
+@media only screen and (max-width: 800px) { .date-card { display: none; } }
+@media only screen and (max-width: 800px) { .post-card { margin-left: 0px; } }

@@ -1,0 +1,1 @@
+(new-object -COM 'Shell.Application').BrowseForFolder(0, 'Please choose where your mysql.exe is located', 0, 0).self.path
