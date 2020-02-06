@@ -24,6 +24,18 @@
 	<body>
 		<?php require_once($_SERVER['DOCUMENT_ROOT'] . "/BlogZone/pages/user_header.php"); ?>
 
+		<br>
+		<div class="row">
+			<div class="col-12 u-align--center">
+					<ul class="p-inline-list--middot">
+						<li class="p-inline-list__item">
+							<a class="p-button--positive" href="">GRID</a>
+							<a class="p-button--positive" href="">LIST</a>
+						</li>
+					</ul>
+			</div>
+		</div>
+
 		<!-- posts are generated using JQuery in on_dashboard.js -->
 
 		<?php //require_once($_SERVER['DOCUMENT_ROOT'] . "/BlogZone/pages/user_footer.php"); ?>

@@ -9,6 +9,7 @@ function()
 		function()
 		{
 			let args = StringFormat("?title={0}", title);
+			args += "&id=" + id;
 			window.location = "/BlogZone/pages/edit_post.php" + args;
 		});
 

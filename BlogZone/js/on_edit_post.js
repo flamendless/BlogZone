@@ -4,6 +4,7 @@ function()
 	let username = Cookies.get("username");
 	let id = Cookies.get("id");
 	let title = GetURLData("title");
+	let post_id = GetURLData("id");
 	let caption = "";
 	let now = new Date($.now());
 
@@ -11,7 +12,7 @@ function()
 		method: 'POST',
 		url: '/BlogZone/php/get_post_content.php',
 		data:{
-			"id": id,
+			"id": post_id,
 			"username": username,
 			"title": title,
 		},
