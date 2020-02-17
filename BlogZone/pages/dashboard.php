@@ -26,17 +26,22 @@
 
 		<br>
 		<div class="row">
-			<div class="col-12 u-align--center">
-					<ul class="p-inline-list--middot">
-						<li class="p-inline-list__item">
-							<a class="p-button--positive" href="">GRID</a>
-							<a class="p-button--positive" href="">LIST</a>
-						</li>
-					</ul>
+			<div class="row u-align-text--right">
+				<form>
+					<button type="button" class="p-button--positive p-tooltip--btm-right" aria-describedby="btm-right" name="btn_list">
+						<span class="p-tooltip__message" role="tooltip">Display by List View</span>
+						<i class="fa fa-grip-lines"></i>
+					</button>
+					<button type="button" class="p-button--positive p-tooltip--btm-center" aria-describedby="btm-center" name="btn_grid">
+						<span class="p-tooltip__message" role="tooltip">Display by Grid View</span>
+						<i class="fa fa-th-large"></i>
+					</button>
+				</form>
 			</div>
 		</div>
 
 		<!-- posts are generated using JQuery in on_dashboard.js -->
+		<div name="main_view"></div>
 
 		<?php //require_once($_SERVER['DOCUMENT_ROOT'] . "/BlogZone/pages/user_footer.php"); ?>
 	</body>

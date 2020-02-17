@@ -43,11 +43,11 @@
 				<ul class="p-list">
 					<li class="p-list__item">
 						<p><small>Want to begin your creative journey? Register now</small></p>
-						<a class="p-button--positive" href="/pages/register.php">Sign Up</a>
+						<a class="p-button--positive" href="/BlogZone/pages/register.php">Sign Up</a>
 					</li>
 					<li class="p-list__item">
 						<p><small>Already registered? Continue your blogging life now</small></p>
-						<a class="p-button--positive" href="/pages/login.php">Log In</a>
+						<a class="p-button--positive" href="/BlogZone/pages/login.php">Log In</a>
 					</li>
 				</ul>
 			</div>
