@@ -120,6 +120,13 @@ function Exec_AppendPost_Grid(arr_data)
 		let post_title = $("<h2></h2>").appendTo(section).addClass("u-align-text--center");
 		let post_link = $("<a></a>").appendTo(post_title).attr("href", url_null).attr("name", name).val(parsed_data.title).text(parsed_data.title);
 		let post_caption = $("<p></p>").appendTo(section).addClass("u-align-text--center").text(parsed_data.caption);
+		$("a[name = " + name + "]").click(
+			function()
+			{
+				let args = "?title=" + $(this).val();
+				args += "&id=" + parsed_data.id;
+				window.location = "/BlogZone/pages/view.php" + args;
+			});
 	}
 }
 
