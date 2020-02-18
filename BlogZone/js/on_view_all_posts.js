@@ -8,7 +8,6 @@ function()
 	$(".post_link").each(
 		function(i, obj)
 		{
-			console.log(obj);
 			let post_title = $(obj).attr("name");
 			let post_id = $(obj).attr("data");
 			let name = snake_case(post_title);
@@ -24,15 +23,36 @@ function()
 	$("button[name = 'btn_edit']").click(
 		function()
 		{
-			let title = $(this).val();
-			let args = StringFormat("?title={0}", title);
+			const title = $(this).val();
+			const args = StringFormat("?title={0}", title);
 			window.location = "/BlogZone/pages/edit_post.php" + args;
+		});
+
+	$("button[name = 'btn_share']").click(
+		function()
+		{
+			const title = $(this).val();
+			const id = $(this).attr("data");
+			let args = StringFormat("?title={0}", title);
+			args += "&id=" + id;
+			const post_url = "http://localhost/BlogZone/pages/view.php" + args;
+			navigator.clipboard.writeText(post_url).then(function()
+				{
+					vex.dialog.alert("Blog post link has been copied to clipboard");
+				});
+		});
+
+	$("button[name = 'btn_publish']").click(
+		function()
+		{
+			const title = $(this).val();
+			let p = TogglePublishedPost(username, title);
 		});
 
 	$("button[name = 'btn_delete']").click(
 		function()
 		{
-			let title = $(this).val();
+			const title = $(this).val();
 			vex.dialog.confirm({
 				message: "Are you sure you want to delete '" + title + "' ?",
 				callback: function(value)
@@ -56,6 +76,26 @@ function()
 			})
 		});
 });
+
+function TogglePublishedPost(username, title)
+{
+	let dfd = $.Deferred();
+	$.ajax({
+		method: 'POST',
+		url: '/BlogZone/php/toggle_published_post.php',
+		data:
+		{
+			"username": username,
+			"title": title,
+		},
+		success: function(data)
+		{
+			console.log("Toggle " + title + " : " + !!data);
+			location.reload();
+		}
+	});
+	return dfd.promise();
+}
 
 function DeletePost(username, title)
 {

@@ -39,7 +39,7 @@
 				Database::Init();
 				$tbl_post = Database::$tbl_post;
 
-				$result_post = Query::Query_Set("SELECT id, title FROM $tbl_post WHERE author = '$username';");
+				$result_post = Query::Query_Set("SELECT id, title, is_published FROM $tbl_post WHERE author = '$username';");
 
 				echo "<div class='p-strip is-bordered'>";
 					echo "<table>";
@@ -48,6 +48,8 @@
       						echo "<th>Title</th>";
       						echo "<th>Action 1</th>";
       						echo "<th>Action 2</th>";
+      						echo "<th>Action 3</th>";
+      						echo "<th>Action 4</th>";
     						echo "</tr>";
   						echo "</thead>";
   						echo "<tbody>";
@@ -56,8 +58,16 @@
 							{
 								$post_id = $row["id"];
 								$post_title = $row["title"];
+								$mode = "Hide";
+								if ($row["is_published"])
+									$mode = "Hide";
+								else
+									$mode = "Publish";
+
 								$action_1 = "<button type='button' class='p-button--positive is-dense' name='btn_edit' value='$post_title'>Edit</button>";
-								$action_2 = "<button type='button' class='p-button--negative is-dense' name='btn_delete' value='$post_title'>Delete</button>";
+								$action_2 = "<button type='button' class='p-button--positive is-dense' name='btn_share' value='$post_title' data='$post_id'>Share</button>";
+								$action_3 = "<button type='button' class='p-button--positive is-dense' name='btn_publish' value='$post_title'>$mode</button>";
+								$action_4 = "<button type='button' class='p-button--negative is-dense' name='btn_delete' value='$post_title'>Delete</button>";
     							echo "<tr>";
 									echo "<th>";
 										echo "<a href='javascript:void(0);' class='post_link' name='$post_title' data='$post_id'>";
@@ -65,7 +75,9 @@
 										echo "</a>";
 									echo "</th>";
       								echo "<td>$action_1</td>";
-      								echo "<td>$action_2</td>";
+									echo "<td>$action_2</td>";
+      								echo "<td>$action_3</td>";
+      								echo "<td>$action_4</td>";
     							echo "</tr>";
 							}
 
