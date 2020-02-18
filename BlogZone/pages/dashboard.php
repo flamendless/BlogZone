@@ -28,7 +28,12 @@
 		<div class="row">
 			<div class="row u-align-text--right">
 				<form>
-					<button type="button" class="p-button--positive p-tooltip--btm-right" aria-describedby="btm-right" name="btn_list">
+					<button type="button" class="p-button--positive p-tooltip--btm-center" aria-describedby="btm-center" name="btn_sort_title">
+						<span class="p-tooltip__message" role="tooltip" name="tp_sort_title"></span>
+						<i class="fa fa-sort-alpha-down" name='icon_sort_title'></i>
+					</button>
+
+					<button type="button" class="p-button--positive p-tooltip--btm-center" aria-describedby="btm-center" name="btn_list">
 						<span class="p-tooltip__message" role="tooltip">Display by List View</span>
 						<i class="fa fa-grip-lines"></i>
 					</button>
