@@ -5,6 +5,11 @@ function()
 	let id = GetURLData("id");
 	let title = GetURLData("title");
 
+	if (!username)
+	{
+		$("button[name = 'btn_edit']").remove();
+	}
+
 	$("button[name = 'btn_edit']").click(
 		function()
 		{
@@ -18,7 +23,6 @@ function()
 		url: '/BlogZone/php/get_post_info.php',
 		data:{
 			"id": id,
-			"username": username,
 		},
 		success: function(data)
 		{
@@ -34,12 +38,13 @@ function()
 		url: '/BlogZone/php/get_post_content.php',
 		data:{
 			"id": id,
-			"username": username,
 			"title": title,
 		},
 		success: function(data)
 		{
-			let content_split = data.split("\\n");
+			let parsed = JSON.parse(data);
+
+			let content_split = parsed.post_content.split("\\n");
 			let content = content_split.join("\n");
 
 			let editor = new tui.Editor({
@@ -50,5 +55,4 @@ function()
 			});
 		}
 	});
-
 });

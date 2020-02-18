@@ -42,6 +42,25 @@ function()
 	let username = Cookies.get("username");
 	let id = Cookies.get("id");
 
+	if (!username)
+	{
+		$("li[name = 'dashboard']").find("a").text("Home").attr("href", "/BlogZone/index.php");
+		$("li[name = 'menu_post']").remove();
+		$("li[name = 'menu_my_account']").remove();
+
+		let ul = $("ul[name = 'menu_right']");
+		let il_create = $("<li class='p-navigation__link is-selected' role='menuitem' name='create_account'></li>").appendTo(ul);
+		let a_create = $("<a href='/BlogZone/pages/register.php'>Register</a>").appendTo(il_create);
+
+		let il_login = $("<li class='p-navigation__link is-selected' role='menuitem' name='login'></li>").appendTo(ul);
+		let a_login = $("<a href='/BlogZone/pages/login.php'>Login</a>").appendTo(il_login);
+	}
+	else
+	{
+		$("il[name = create_account]").remove();
+		$("il[name = login]").remove();
+	}
+
 	NewPost();
 
 	subnavToggles.forEach(function(subnavToggle)

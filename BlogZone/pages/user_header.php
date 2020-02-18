@@ -37,13 +37,13 @@
 
 		<nav class="p-navigation__nav">
 			<ul class="p-navigation__links" role="menu">
-				<li class="p-navigation__link is-selected" role="menuitem">
+				<li class="p-navigation__link is-selected" role="menuitem" name="dashboard">
 					<a href="/BlogZone/pages/dashboard.php">Dashboard</a>
 				</li>
 			</ul>
 
-			<ul class="p-navigation__links" role="menu">
-				<li id="post_subnav" class="p-navigation__link p-subnav" role="menuitem">
+			<ul class="p-navigation__links" role="menu" name="menu_right">
+				<li id="post_subnav" class="p-navigation__link p-subnav" role="menuitem" name="menu_post">
 					<a class="p-subnav__toggle" aria-controls="post-menu" aria-expanded="false">
 						Post
 					</a>
@@ -61,7 +61,7 @@
 					</ul>
 				</li>
 
-				<li id="account_subnav" class="p-navigation__link p-subnav" role="menuitem">
+				<li id="account_subnav" class="p-navigation__link p-subnav" role="menuitem" name="menu_my_account">
 					<a class="p-subnav__toggle" aria-controls="account-menu" aria-expanded="false">
 						My Account
 					</a>
