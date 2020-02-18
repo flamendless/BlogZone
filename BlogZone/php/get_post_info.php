@@ -8,10 +8,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/BlogZone/php/database.php");
 Database::Init();
 $tbl_post = Database::$tbl_post;
 
-$username = Query::Safe($_POST["username"]);
 $id = Query::Safe($_POST["id"]);
 
-$result = Query::Query_Set("SELECT * FROM $tbl_post WHERE id = '$id' AND author = '$username';");
+$result = Query::Query_Set("SELECT * FROM $tbl_post WHERE id = '$id'");
 $data = mysqli_fetch_assoc($result);
 
 $title = $data["title"];

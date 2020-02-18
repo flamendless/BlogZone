@@ -9,7 +9,9 @@ $tbl_post_info = Database::$tbl_post_info;
 
 $limit = Query::Safe($_POST["limit"]);
 $username = Query::Safe($_POST["username"]);
-$result = Query::Query_Set("SELECT p.id, p.author, p.title, p.caption, p.filename, p.base_path, i.date_published, i.time_published FROM $tbl_post AS p INNER JOIN $tbl_post_info AS i ON p.id = i.id WHERE p.author = '$username' AND p.is_published = true LIMIT $limit;");
+$search_query = Query::Safe($_POST["search_query"]);
+
+$result = Query::Query_Set("SELECT p.id, p.author, p.title, p.caption, p.filename, p.base_path, i.date_published, i.time_published FROM $tbl_post AS p INNER JOIN $tbl_post_info AS i ON p.id = i.id WHERE p.author = '$username' AND p.is_published = true AND p.title LIKE '%$search_query%' LIMIT $limit;");
 
 // $content = mysqli_fetch_array($result);
 

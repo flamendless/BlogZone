@@ -27,6 +27,16 @@
 		<br>
 		<div class="row">
 			<div class="row u-align-text--right">
+				<form class="p-search-box">
+					<input type="search" class="p-search-box__input" name="search" placeholder="Search title by keyword" required="">
+					<button type="reset" class="p-search-box__reset" alt="reset">
+						<i class="p-icon--close"></i>
+					</button>
+					<button type="submit" class="p-search-box__button" alt="search">
+						<i class="p-icon--search"></i>
+					</button>
+				</form>
+
 				<form>
 					<button type="button" class="p-button--positive p-tooltip--btm-center" aria-describedby="btm-center" name="btn_sort_title">
 						<span class="p-tooltip__message" role="tooltip" name="tp_sort_title"></span>

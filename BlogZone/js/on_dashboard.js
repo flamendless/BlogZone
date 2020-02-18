@@ -22,7 +22,8 @@ function()
 		console.log(Cookies.get("view_mode"));
 
 	let arr_data;
-	let p = AppendPosts();
+	let search_query = GetURLData("search");
+	let p = AppendPosts(search_query);
 	p.done(
 		function(arg)
 		{
@@ -229,7 +230,7 @@ function Exec_AppendPost_Grid(arr_data)
 	}
 }
 
-function AppendPosts()
+function AppendPosts(search_query = "")
 {
 	let dfd = $.Deferred();
 	$.ajax({
@@ -239,6 +240,7 @@ function AppendPosts()
 		{
 			"limit": 5,
 			"username": Cookies.get("username"),
+			"search_query": search_query,
 		},
 		success: function(data)
 		{
