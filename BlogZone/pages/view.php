@@ -20,7 +20,9 @@
 
 		<link rel="stylesheet" href="/BlogZone/includes/tui-editor/tui-editor-contents.min.css">
 		<link rel="stylesheet" href="/BlogZone/includes/tui-editor/github.min.css">
+		<link rel="stylesheet" href="/BlogZone/includes/rateyo/jquery.rateyo.min.css">
 		<script src="/BlogZone/includes/tui-editor/tui-editor-Viewer-full.min.js"></script>
+		<script src="/BlogZone/includes/rateyo/jquery.rateyo.min.js"></script>
 
 	</head>
 
@@ -35,6 +37,12 @@
 					<button type="button" class="p-button--positive" name="btn_edit">Edit</button>
 				</form>
 			</div>
+
+			<div class="p-card u-clearfix">
+				<div class="u-float-right" id="rateYo">
+				</div>
+			</div>
+
 			<hr>
 			<div class="row">
 				<h1 name='post_title' class="p-card__title u-align-text--center"></h1>

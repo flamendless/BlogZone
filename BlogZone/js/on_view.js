@@ -53,6 +53,22 @@ function()
 				initialValue: content,
 				usageStatistics: false,
 			});
+
+			if (username != parsed.author)
+				SetupRating();
 		}
 	});
 });
+
+function SetupRating()
+{
+  	$("#rateYo").rateYo({
+  		numStars: 5,
+  		halfStar: true,
+  		onSet: function(rating, obj)
+  		{
+  			vex.dialog.alert("You have rated: " + rating);
+  			$(this).rateYo("option", "readOnly", true);
+  		}
+  	});
+}
