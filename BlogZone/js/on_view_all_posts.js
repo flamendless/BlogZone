@@ -5,6 +5,22 @@ function()
 	let id = Cookies.get("id");
 	let username = Cookies.get("username");
 
+	$(".post_link").each(
+		function(i, obj)
+		{
+			console.log(obj);
+			let post_title = $(obj).attr("name");
+			let post_id = $(obj).attr("data");
+			let name = snake_case(post_title);
+			$(obj).click(
+				function()
+				{
+					let args = "?title=" + post_title;
+					args += "&id=" + post_id;
+					window.location = "/BlogZone/pages/view.php" + args;
+				});
+		});
+
 	$("button[name = 'btn_edit']").click(
 		function()
 		{

@@ -39,7 +39,7 @@
 				Database::Init();
 				$tbl_post = Database::$tbl_post;
 
-				$result_post = Query::Query_Set("SELECT title FROM $tbl_post WHERE author = '$username';");
+				$result_post = Query::Query_Set("SELECT id, title FROM $tbl_post WHERE author = '$username';");
 
 				echo "<div class='p-strip is-bordered'>";
 					echo "<table>";
@@ -54,11 +54,16 @@
 
 							while ($row = mysqli_fetch_assoc($result_post))
 							{
+								$post_id = $row["id"];
 								$post_title = $row["title"];
 								$action_1 = "<button type='button' class='p-button--positive is-dense' name='btn_edit' value='$post_title'>Edit</button>";
 								$action_2 = "<button type='button' class='p-button--negative is-dense' name='btn_delete' value='$post_title'>Delete</button>";
     							echo "<tr>";
-      								echo "<th>$post_title</th>";
+									echo "<th>";
+										echo "<a href='javascript:void(0);' class='post_link' name='$post_title' data='$post_id'>";
+											echo "$post_title";
+										echo "</a>";
+									echo "</th>";
       								echo "<td>$action_1</td>";
       								echo "<td>$action_2</td>";
     							echo "</tr>";

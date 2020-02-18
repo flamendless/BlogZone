@@ -42,11 +42,18 @@
 				$tbl_image = Database::$tbl_image;
 				$tbl_preference = Database::$tbl_preference;
 
+				$avatar = "/BlogZone/assets/template_user.svg";
 				$result_avatar = Query::Query_Set("SELECT img.filename, img.rel_path FROM $tbl_image AS img INNER JOIN $tbl_preference AS pref ON pref.user_id = img.id WHERE pref.user_id = '$id'");
-				$data_avatar = mysqli_fetch_assoc($result_avatar);
-				$filename = $data_avatar["filename"];
-				$rel_path = $data_avatar["rel_path"];
-				$avatar = $rel_path . $filename;
+				if ($result_avatar)
+				{
+					if (mysqli_num_rows($result_avatar) > 0)
+					{
+						$data_avatar = mysqli_fetch_assoc($result_avatar);
+						$filename = $data_avatar["filename"];
+						$rel_path = $data_avatar["rel_path"];
+						$avatar = $rel_path . $filename;
+					}
+				}
 
 				$result_info = Query::Query_Set("SELECT user.email, CONCAT_WS(' ', info.first_name, info.middle_name, info.last_name) AS fullname, info.sex, info.birthdate, info.date_joined, info.time_joined, TIMESTAMPDIFF(YEAR, info.birthdate, CURDATE()) AS age FROM $tbl_user AS user INNER JOIN $tbl_info AS info ON user.id = info.id WHERE user.id = '$id';");
 				$data_info = mysqli_fetch_assoc($result_info);
@@ -65,7 +72,13 @@
 				echo "<div class='p-strip is-bordered'>";
 					echo "<div class='row'>";
 						echo "<div class='u-align--center'>";
-							echo "<img class='p-image' src='$avatar' alt='avatar' style='width: 35%'>";
+							echo "<a href='javascript:void(0);' onclick='ChooseAvatar();' class='p-tooltip--btm-center' aria-describedby='btm-center'>";
+								echo "<span class='p-tooltip__message' role='tooltip'>";
+									echo "Click to change avatar";
+								echo "</span>";
+								echo "<img class='p-image' src='$avatar' alt='avatar' style='width: 35%'>";
+								echo "<i class='fa fa-camera fa-2x'></i>";
+							echo "</a>";
 						echo "</div>";
 					echo "<h3 class='u-align-text--center'>$fullname</h3>";
 					echo "<h5 class='u-align-text--center'>@$username</h5>";

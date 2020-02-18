@@ -62,7 +62,7 @@ function OnAvatar()
 function OnAvatarSuccess(data)
 {
 	let info = data.info;
-	let f = info.rel_path + info.filename;
+	let f = "/BlogZone" + info.rel_path + info.filename;
 	console.log(f + " already exists. Using the existing file.")
 	$("#avatar_template").attr("src", f);
 	$(btn_upload_avatar).text("Choose Another");
