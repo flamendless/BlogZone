@@ -55,9 +55,15 @@ function()
 			});
 
 			if (username != parsed.author)
+			{
 				SetupRating();
+				// SetupComments();
+			}
 		}
 	});
+
+	//TODO need works
+	UpdateComment();
 });
 
 function SetupRating()
@@ -71,4 +77,68 @@ function SetupRating()
   			$(this).rateYo("option", "readOnly", true);
   		}
   	});
+}
+
+function SetupComments()
+{
+	let p = GetUserInfo();
+	p.done(
+		function(parsed_data)
+		{
+			let filename = parsed_data["filename"];
+			let rel_path = parsed_data["rel_path"];
+			let filetype = parsed_data["filetype"];
+			console.log(filename, rel_path, filetype);
+		}
+	).fail(
+		function(parsed_data)
+		{
+			let file = "/BlogZone/template_user.svg";
+			UpdateComment(file);
+		});
+}
+
+function UpdateComment(file = "/BlogZone/assets/template_user.svg")
+{
+	let username = "Stranger";
+	$("#comments").comments({
+		profilePictureURL: file,
+		getComments: function(success, error)
+		{
+			let arr_comments = [{
+				id: 1,
+				created: "2020-02-19",
+				content: "Awesome post!",
+				fullname: username,
+			}];
+			success(arr_comments);
+		}
+	});
+}
+
+function GetUserInfo()
+{
+	let username = Cookies.get("username");
+	let dfd = $.Deferred();
+	$.ajax({
+		method: 'POST',
+		url: '/BlogZone/php/get_user_info.php',
+		data: {
+			"username": username,
+		},
+		success: function(data)
+		{
+			if (data == false)
+				dfd.reject();
+			else
+			{
+				let parsed = JSON.parse(data);
+				if (parsed.result)
+					dfd.resolve(parsed);
+				else
+					dfd.reject(parsed);
+			}
+		}
+	});
+	return dfd.promise();
 }

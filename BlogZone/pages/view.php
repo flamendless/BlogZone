@@ -20,9 +20,13 @@
 
 		<link rel="stylesheet" href="/BlogZone/includes/tui-editor/tui-editor-contents.min.css">
 		<link rel="stylesheet" href="/BlogZone/includes/tui-editor/github.min.css">
+
 		<link rel="stylesheet" href="/BlogZone/includes/rateyo/jquery.rateyo.min.css">
+		<link rel="stylesheet" href="/BlogZone/includes/comments/jquery-comments.css">
+
 		<script src="/BlogZone/includes/tui-editor/tui-editor-Viewer-full.min.js"></script>
 		<script src="/BlogZone/includes/rateyo/jquery.rateyo.min.js"></script>
+		<script src="/BlogZone/includes/comments/jquery-comments.min.js"></script>
 
 	</head>
 
@@ -53,6 +57,11 @@
 			<hr>
 			<br>
 			<div id="viewer"></div>
+		</div>
+
+		<div class="p-card main-card" style="width: 80%">
+			<div id="comments">
+			</div>
 		</div>
 
 		<?php //require_once($_SERVER["DOCUMENT_ROOT"] . "/BlogZone/pages/user_footer.php"); ?>
