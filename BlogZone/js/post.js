@@ -34,6 +34,7 @@ function SavePost(method, username, id, title, caption, content, now, create_new
 		url = '/BlogZone/php/overwrite_post.php';
 	else if (method == "create")
 		url = '/BlogZone/php/create_post.php';
+	console.log(method);
 
 	let dfd = $.Deferred();
 	$.ajax({

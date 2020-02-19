@@ -238,13 +238,13 @@ function AppendPosts(search_query = "")
 		url: '/BlogZone/php/show_posts.php',
 		data:
 		{
-			"limit": 5,
 			"username": Cookies.get("username"),
 			"search_query": search_query,
 		},
 		success: function(data)
 		{
 			let parsed = JSON.parse(data);
+			console.log("Fetched number of posts: " + parsed.length);
 			dfd.resolve(parsed);
 		}
 	});

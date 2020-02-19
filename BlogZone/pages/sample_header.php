@@ -25,7 +25,7 @@
 			<div class="p-navigation__banner">
 				<div class="p-navigation__logo">
 					<a id="user_logo" class="p-navigation__link" href="javascript:void(0);">
-						<img id="template_header" class="b-lazy b-loaded p-navigation__image" src="/assets/template_header.svg" alt="template_header">
+						<img id="template_header" class="b-lazy b-loaded p-navigation__image" src="/BlogZone/assets/template_header.svg" alt="template_header">
 					</a>
 				</div>
 			</div>

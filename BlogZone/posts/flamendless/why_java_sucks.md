@@ -1,1 +1,0 @@
-# Why Java Sucks?\n\n* It is very slow\n* Its namespace and API has long name\n* Have to downloaded over 700mb+ of data before using\n* Garbage collection!\n* Too much more.\n\n<br>\nSincerely, Brandon.

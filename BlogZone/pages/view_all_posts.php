@@ -64,7 +64,7 @@
 								else
 									$mode = "Publish";
 
-								$action_1 = "<button type='button' class='p-button--positive is-dense' name='btn_edit' value='$post_title'>Edit</button>";
+								$action_1 = "<button type='button' class='p-button--positive is-dense' name='btn_edit' value='$post_title' data='$post_id'>Edit</button>";
 								$action_2 = "<button type='button' class='p-button--positive is-dense' name='btn_share' value='$post_title' data='$post_id'>Share</button>";
 								$action_3 = "<button type='button' class='p-button--positive is-dense' name='btn_publish' value='$post_title'>$mode</button>";
 								$action_4 = "<button type='button' class='p-button--negative is-dense' name='btn_delete' value='$post_title'>Delete</button>";

@@ -23,13 +23,19 @@ $time_created = Query::Safe($_POST["time_created"]);
 $date_published = Query::Safe($_POST["date_published"]);
 $time_published = Query::Safe($_POST["time_published"]);
 
-$new_file = fopen($_SERVER["DOCUMENT_ROOT"] . "/BlogZone" . $base_path . $filename, "w");
+$filepath = $_SERVER["DOCUMENT_ROOT"] . "/BlogZone" . $base_path . $filename;
+
+$new_file = fopen($filepath, "w");
 fwrite($new_file, $content);
 
 $result_post = Query::Query_NoSet("INSERT INTO $tbl_post(author, title, caption, filename, base_path, is_published) VALUE('$username', '$title', '$caption', '$filename', '$base_path', $is_published);");
 $id = Query::GetID();
 $result_info = Query::Query_NoSet("INSERT INTO $tbl_post_info(id, date_created, time_created, date_published, time_published) VALUE('$id', '$date_created', '$time_created', '$date_published', '$time_published');");
 
-echo "new"
+echo json_encode(
+	array(
+		"method" => "new",
+		"filepath" => $filepath
+	));
 
 ?>

@@ -301,6 +301,7 @@ function Register(username, password, email)
 		},
 		success: function(data)
 		{
+			console.log(data);
 			let parsed = JSON.parse(data);
 			console.log(StringFormat("Registering ID {0}: {1}", parsed.id, parsed.result));
 			if (parsed.result)

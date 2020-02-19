@@ -24,7 +24,9 @@ function()
 		function()
 		{
 			const title = $(this).val();
-			const args = StringFormat("?title={0}", title);
+			const post_id = $(this).attr("data");
+			let args = StringFormat("?title={0}", title);
+			args += "&id=" + post_id;
 			window.location = "/BlogZone/pages/edit_post.php" + args;
 		});
 
@@ -110,6 +112,7 @@ function DeletePost(username, title)
 		},
 		success: function(data)
 		{
+			console.log(data);
 			let parsed = JSON.parse(data);
 			if (parsed.result1 && parsed.result2)
 				dfd.resolve(data);

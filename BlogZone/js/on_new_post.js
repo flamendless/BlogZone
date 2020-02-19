@@ -34,7 +34,7 @@ function()
 		{
 			let base_path = "/posts/" + username + "/";
 			let filename = snake_case(title) + ".md";
-			let filepath = base_path + filename;
+			let filepath = "/BlogZone" + base_path + filename;
 			let content = editor.getMarkdown();
 
 			let check = CheckFile(filepath);
