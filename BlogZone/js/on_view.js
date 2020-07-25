@@ -63,6 +63,8 @@ function()
 	});
 
 	//TODO need works
+	//view-source:http://viima.github.io/jquery-comments/demo/
+	//http://viima.github.io/jquery-comments/demo/data/comments-data.js
 	UpdateComment();
 });
 
